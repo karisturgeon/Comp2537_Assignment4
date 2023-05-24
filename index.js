@@ -69,7 +69,7 @@ const getCards = (level) => {
         pokemonCards = selectedPokemon.flatMap(pokemon => [pokemon, { ...pokemon }]);;
         shuffle(pokemonCards);
     }
-    console.log(pokemonCards);
+
 
 
     $('#game_grid').empty();
@@ -88,7 +88,6 @@ const getCards = (level) => {
 }
 
 const start = () => {
-    
     lockBoard = false;
     totalClicks = 0;
     pairsMatched = 0;
@@ -120,7 +119,6 @@ const updateBanner = (totalClicks, pairsLeft, pairsMatched, totalPairs) => {
 
 
 const reset = () => {
-    $('#winAlert').hide();
     lockBoard = false;
     clearInterval(timer);
     $('#timesUp').hide();
