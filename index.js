@@ -207,23 +207,16 @@ const setup = () => {
     $("#game_grid").on("click", ".cards:not(.matched)", function () {
         if (lockBoard) return;
 
-
+        if ($(this).hasClass("flip")) {
+            return; // Do nothing if the card is already flipped
+        }
         $(this).toggleClass("flip");
 
         if (!firstCard) {
             firstCard = $(this).find(".front_face")[0]
-        } else {
+        } else{
             secondCard = $(this).find(".front_face")[0]
             lockBoard = true;
-            if (firstCard.id === secondCard.id) {
-                firstCard = undefined
-                secondCard = undefined
-                totalClicks++;
-                totalClicks++;
-                lockBoard = false;
-                updateBanner(totalClicks, pairsLeft, pairsMatched, totalPairs);
-                return;
-            }
             if (firstCard.src === secondCard.src) {
                 $(`#${firstCard.id}`).parent().off("click");
                 $(`#${secondCard.id}`).parent().off("click");
