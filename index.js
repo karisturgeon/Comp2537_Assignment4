@@ -236,7 +236,9 @@ const setup = () => {
                 pairsMatched += 1;
                 updateBanner(totalClicks, pairsLeft, pairsMatched, totalPairs);
                 if (pairsLeft === 0) {
+                    setTimeout(() => {
                     win();
+                    }, 1000)
                 }
                 lockBoard = false;
             } else {
