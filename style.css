@@ -28,6 +28,13 @@ color: white;
 
 }
 
+#reset {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  border:black 1px solid;
+}
+
 .btn {
   background-color: black !important;
 
@@ -58,7 +65,6 @@ p {
 }
 
 #game_grid {
-  border: 2px black solid;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
@@ -78,12 +84,12 @@ p {
   width: 25%;
 }
 .game-grid-hard {
-  width: 1000px;
-  height: 1000px;
+  width: 800px;
+  height: 800px;
 }
 
 .game-grid-hard .cards{
-  width: 20%;
+  width: 25%;
 }
 
 .cards {
@@ -122,7 +128,7 @@ img {
   display: flex;
   gap: 2rem;
   width: fit-content;
-  background: #fff;
+  background: transparent;
   padding: 1rem 3rem;
   margin-inline: auto;
   border-radius: 0 0 1rem 1rem;
@@ -142,15 +148,15 @@ img {
 }
 
 .color-picker input[type="radio"]#light {
-  --radio-color: gray;
+  --radio-color: lightgray;
 }
 .color-picker input[type="radio"]#pink {
-  --radio-color: pink;
+  --radio-color: #D90368;
 }
 
 
 .color-picker input[type="radio"]#dark {
-  --radio-color: #232323;
+  --radio-color: #595457;
 }
 
 #winAlert {
@@ -186,6 +192,24 @@ img {
 }
 
 #timesUp h1 {
+  font-size: 75px;
+}
+
+#powerUp {
+  display: none;
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: yellow;
+  color: black;
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 1rem;
+  z-index: 100;
+}
+
+#powerUp h1 {
   font-size: 75px;
 }
 

@@ -26,7 +26,11 @@ const shuffle = (pokemon) => {
 }
 
 const powerUp = () => {
-    alert("Power Up!");
+    $("#powerUp").show();
+    setTimeout(() => {
+        $("#powerUp").hide();
+    }, 1000);
+
     $('.cards:not(.matched)').toggleClass('flip');
     setTimeout(() => {
         $('.cards:not(.matched)').toggleClass('flip');
@@ -57,7 +61,7 @@ const getCards = (level) => {
     } else if (level === 10) {
         time = 60;
         $('#game_grid').addClass('game-grid-hard');
-        selectedPokemon = pokemonData.slice(0, 10);
+        selectedPokemon = pokemonData.slice(0, 8);
         pokemonCards = selectedPokemon.flatMap(pokemon => [pokemon, { ...pokemon }]);;
     } else {
         $('#game_grid').addClass('game-grid-easy');
@@ -137,6 +141,7 @@ const updateTimer = () => {
     } else {
         clearInterval(timer);
         $('#timesUp').show();
+        lockBoard = true;
     }
 
 }
