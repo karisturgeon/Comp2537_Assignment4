@@ -1,6 +1,6 @@
 
 var timer;
-var time = 100;
+var time = 30;
 let level;
 let totalClicks = 0;
 let pairsLeft;
