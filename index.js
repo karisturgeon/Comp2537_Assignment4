@@ -1,6 +1,6 @@
 
 var timer;
-var time = 30;
+var time = 100;
 let level;
 let totalClicks = 0;
 let pairsLeft;
@@ -35,6 +35,7 @@ const getCards = (level) => {
     totalCards = level * 2;
     updateBanner(totalClicks, pairsLeft, pairsMatched, totalPairs);
     if (level === 3) {
+        time = 30;
         $('#game_grid').addClass('game-grid-easy');
         selectedPokemon = pokemonData.slice(0, 3)
         pokemonCards = selectedPokemon.flatMap(pokemon => [pokemon, { ...pokemon }]);;
@@ -74,6 +75,7 @@ const getCards = (level) => {
 };
 
 const start = () => {
+    clearInterval(timer);
     lockBoard = false;
     totalClicks = 0;
     pairsMatched = 0;
