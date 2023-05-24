@@ -16,28 +16,14 @@ const getPokemon = async () => {
     shuffle(pokemonData);
     getCards(level);
     ;
-}
+};
 
 const shuffle = (pokemon) => {
     for (let i = pokemon.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [pokemon[i], pokemon[j]] = [pokemon[j], pokemon[i]];
     }
-}
-
-const powerUp = () => {
-    $("#powerUp").show();
-    setTimeout(() => {
-        $("#powerUp").hide();
-    }, 1000);
-
-    $('.cards:not(.matched)').toggleClass('flip');
-    setTimeout(() => {
-        $('.cards:not(.matched)').toggleClass('flip');
-    }, 1000);
-}
-
-
+};
 
 const getCards = (level) => {
     $('#game_grid').removeClass('game-grid-easy game-grid-medium game-grid-hard');
@@ -85,7 +71,7 @@ const getCards = (level) => {
         )
         i++;
     })
-}
+};
 
 const start = () => {
     lockBoard = false;
@@ -99,13 +85,12 @@ const start = () => {
     $('#timerDiv').show();
     timer = setInterval(updateTimer, 1000);
     updateTimer();
-}
+};
 
 const win = () => {
     $('#winAlert').show();
     clearInterval(timer);
-}
-
+};
 
 const updateBanner = (totalClicks, pairsLeft, pairsMatched, totalPairs) => {
     $("#banner").html(
@@ -114,9 +99,7 @@ const updateBanner = (totalClicks, pairsLeft, pairsMatched, totalPairs) => {
         <p>Pairs Left: ${pairsLeft}</p>
         <p>Pairs Matched: ${pairsMatched} / ${totalPairs}</p>
     `)
-}
-
-
+};
 
 const reset = () => {
     lockBoard = false;
@@ -130,7 +113,7 @@ const reset = () => {
     time = 30;
     totalClicks = 0;
     pairsMatched = 0;
-}
+};
 
 const updateTimer = () => {
     if (time > 0) {
@@ -142,7 +125,7 @@ const updateTimer = () => {
         lockBoard = true;
     }
 
-}
+};
 
 const changeTheme = (theme) => {
     const bodyElement = document.body;
@@ -152,6 +135,19 @@ const changeTheme = (theme) => {
     });
     bodyElement.classList.add(theme);
 };
+
+const powerUp = () => {
+    $("#powerUp").show();
+    setTimeout(() => {
+        $("#powerUp").hide();
+    }, 1000);
+
+    $('.cards:not(.matched)').toggleClass('flip');
+    setTimeout(() => {
+        $('.cards:not(.matched)').toggleClass('flip');
+    }, 1000);
+}
+
 
 const setup = () => {
 
